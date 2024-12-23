@@ -1,0 +1,46 @@
+const int pirPin = D5;  // PIR sensor pin
+const int ledPin = D2; // LED pin
+
+int lastSensorValue = LOW; // Previous PIR sensor value
+int sensorValue = LOW;     // Current PIR sensor value
+
+unsigned long lastMotionTime = 0; // Last time motion was detected
+const unsigned long motionTimeout = 10000; // Time to turn off LEDs (10 seconds)
+int pirState = LOW; // Motion state
+
+const unsigned long debounceDelay = 50; // Debounce time (50 ms)
+
+void setup() {
+  pinMode(ledPin, OUTPUT);  // Configure LED pin as output
+  pinMode(pirPin, INPUT);   // Configure PIR pin as input
+  Serial.begin(9600);        // Initialize Serial Monitor
+}
+
+void loop() {
+  // Read PIR sensor value
+  sensorValue = digitalRead(pirPin);
+
+  // Debounce the sensor to avoid false readings
+  if (sensorValue != lastSensorValue) {
+    delay(debounceDelay);
+    sensorValue = digitalRead(pirPin);
+  }
+
+  // If motion is detected
+  if (sensorValue == HIGH) {
+    if (pirState == LOW) { // Motion state changed
+      Serial.println("Motion Detected!");
+      pirState = HIGH;
+      lastMotionTime = millis(); // Update last motion time
+    }
+    digitalWrite(ledPin, HIGH); // Turn on LED
+  } else { // No motion detected
+    if (pirState == HIGH && millis() - lastMotionTime > motionTimeout) {
+      Serial.println("Motion Ended!");
+      pirState = LOW;
+      digitalWrite(ledPin, LOW); // Turn off LED
+    }
+  }
+
+  lastSensorValue = sensorValue;
+}

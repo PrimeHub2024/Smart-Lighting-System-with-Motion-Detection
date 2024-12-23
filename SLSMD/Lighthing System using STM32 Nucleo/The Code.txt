@@ -1,0 +1,33 @@
+const int ldrPin = A0; // LDR connected to analog pin A0
+const int led1 = PA_2;  // LED 1
+const int led2 = PA_1;  // LED 2
+const int led3 = PA_0;  // LED 3
+
+const int threshold = 500; // Adjust the threshold as needed
+
+void setup() {
+  pinMode(led1, OUTPUT); 
+  pinMode(led2, OUTPUT);
+  pinMode(led3, OUTPUT);
+  Serial.begin(9600); // Start Serial Monitor
+}
+
+void loop() {
+  int ldrValue = analogRead(ldrPin);
+  delay(3000); // Add a delay for LDR stabilization
+
+  Serial.print("LDR Value: ");
+  Serial.println(ldrValue);
+
+  if (ldrValue < threshold) {
+    digitalWrite(led1, HIGH);
+    digitalWrite(led2, HIGH);
+    digitalWrite(led3, HIGH);
+    Serial.println("No natural light. Turning ON light.");
+  } else {
+    digitalWrite(led1, LOW);
+    digitalWrite(led2, LOW);
+    digitalWrite(led3, LOW);
+    Serial.println("Natural light detected. Turning OFF light.");
+  }
+}
