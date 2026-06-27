@@ -1,4 +1,4 @@
-```markdown
+
 # 💡 Smart Lighting System with Motion Detection (SLSMD)
 
 ![Smart Lighting System Architecture](SLSMD_architecture.png)
