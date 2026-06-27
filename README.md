@@ -62,4 +62,5 @@ The system prioritizes motion detection.
   - Low light → LEDs ON
   - Bright light → LEDs OFF
 
+
 ```
