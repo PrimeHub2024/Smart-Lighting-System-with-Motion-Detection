@@ -1,0 +1,49 @@
+#include <Arduino.h>
+
+const int ldrDigitalPin = D5; // Digital output of LDR
+const int ldrAnalogPin = A0; // Analog output of LDR
+const int pirPin = D5; // PIR sensor output
+const int led1Pin = D2; // LED 1 pin
+const int led2Pin = D3; // LED 2 pin
+const int led3Pin = D4; // LED 3 pin
+
+const int ldrThreshold = 500; // Adjust threshold as needed
+
+void setup() {
+  pinMode(led1Pin, OUTPUT);
+  pinMode(led2Pin, OUTPUT);
+  pinMode(led3Pin, OUTPUT);
+  pinMode(pirPin, INPUT);
+  Serial.begin(9600);
+}
+
+void loop() {
+  int ldrValue = analogRead(ldrAnalogPin);
+  int pirValue = digitalRead(pirPin);
+
+  // Prioritize motion detection
+  if (pirValue == HIGH) {
+    Serial.println("Motion Detected!");
+    digitalWrite(led1Pin, HIGH);
+    digitalWrite(led2Pin, HIGH);
+    digitalWrite(led3Pin, HIGH);
+    delay(1000); // Delay for 1 second
+  } else {
+    // If no motion, control LEDs based on light intensity
+    if (ldrValue < ldrThreshold) {
+      Serial.print("Low Light Detected! LDR Value: ");
+      Serial.println(ldrValue);
+      digitalWrite(led1Pin, HIGH);
+      digitalWrite(led2Pin, HIGH);
+      digitalWrite(led3Pin, HIGH);
+      delay(1000); // Delay for 1 second
+    } else {
+      Serial.print("High Light Detected! LDR Value: ");
+      Serial.println(ldrValue);
+      digitalWrite(led1Pin, LOW);
+      digitalWrite(led2Pin, LOW);
+      digitalWrite(led3Pin, LOW);
+      delay(1000); // Delay for 1 second
+    }
+  }
+}
