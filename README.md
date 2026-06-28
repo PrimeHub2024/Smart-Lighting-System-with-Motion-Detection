@@ -64,7 +64,7 @@ The system prioritizes motion detection.
 
 ```
 
-## Academic Information
+## 🎓 Academic Information
 
 Project Title: Smart lightinh system with motion detection using STM32 nucleo board
 
@@ -76,4 +76,4 @@ Project Type: Internship Task
 
 Institution: Fr. Conceicao Rodrigues Institute of Technology (FCRIT), Vashi, Navi Mumbai
 
-```
+
