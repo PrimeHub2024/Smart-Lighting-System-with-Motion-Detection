@@ -1,4 +1,3 @@
-
 # 💡 Smart Lighting System with Motion Detection (SLSMD)
 
 ![Smart Lighting System Architecture](SLSMD_architecture.png)
@@ -41,13 +40,14 @@ Otherwise, the LEDs remain OFF, ensuring efficient energy utilization.
 - STM32 Nucleo Board
 - PIR Motion Sensor
 - LDR (Light Dependent Resistor)
-- LEDs, Resistors
+- LEDs
+- Resistors
 
 ---
 
 ## 💻 Software Used
 
-- Wokwi online simulator
+- Wokwi Online Simulator
 
 ---
 
@@ -62,11 +62,11 @@ The system prioritizes motion detection.
   - Low light → LEDs ON
   - Bright light → LEDs OFF
 
-```
+---
 
 ## 🎓 Academic Information
 
-Project Title: Smart lightinh system with motion detection using STM32 nucleo board
+Project Title: Smart Lighting System with Motion Detection using STM32 Nucleo Board
 
 Department: Electronics & Telecommunication Engineering
 
@@ -75,5 +75,3 @@ Academic Year: 2024–25
 Project Type: Internship Task
 
 Institution: Fr. Conceicao Rodrigues Institute of Technology (FCRIT), Vashi, Navi Mumbai
-
-
