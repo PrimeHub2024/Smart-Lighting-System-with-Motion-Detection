@@ -62,5 +62,18 @@ The system prioritizes motion detection.
   - Low light → LEDs ON
   - Bright light → LEDs OFF
 
+```
+
+## Academic Information
+
+Project Title: Smart lightinh system with motion detection using STM32 nucleo board
+
+Department: Electronics & Telecommunication Engineering
+
+Academic Year: 2024–25
+
+Project Type: Internship Task
+
+Institution: Fr. Conceicao Rodrigues Institute of Technology (FCRIT), Vashi, Navi Mumbai
 
 ```
